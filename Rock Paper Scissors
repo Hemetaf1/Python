@@ -1,0 +1,32 @@
+#ROCK PAPER SCISSORS 2
+import random
+from colorama import Fore, Style
+score = 0
+def random_choice(ans):
+  print(Style.RESET_ALL)
+  global score
+  ls = ['rock', 'paper', 'scissors']
+
+  computer = random.choice(ls)
+
+  if ans == computer:
+    print('computer chose:',computer)
+    print('You didn\'t get any score!','\n')
+  elif ans =='scissors' and computer == 'rock' or ans == 'rock' and computer == 'paper' or ans == 'paper' and computer == 'scissors':
+    print(Fore.RED+'computer chose:',computer)
+    print('You didn\'t get any score!','\n')
+  else:
+    print(Fore.GREEN+'computer chose:',computer)
+    print('You got one score!','\n')
+    score+=1
+
+
+for i in range(5):
+  print(Style.RESET_ALL)
+  ans = input('''What is your choice? \nrock  paper scissors\n''')
+  random_choice(ans)
+
+print("your score is :", score)
+
+if score>=3:
+  print("YOU WON!")
